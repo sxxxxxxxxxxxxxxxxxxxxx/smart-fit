@@ -133,7 +133,11 @@ export default function WardrobePage() {
               <div className="p-4">
                 <div className="flex justify-between items-start mb-1">
                   <h3 className="font-bold text-gray-900 truncate pr-2">{item.name}</h3>
-                  <span className="text-xs font-medium text-gray-400 uppercase tracking-wider">{item.season}</span>
+                  {item.season && (
+                    <span className="text-xs font-medium text-gray-400 uppercase tracking-wider">
+                      {item.season === "spring" ? "春" : item.season === "summer" ? "夏" : item.season === "autumn" ? "秋" : item.season === "winter" ? "冬" : "四季"}
+                    </span>
+                  )}
                 </div>
                 <p className="text-sm text-gray-500 capitalize">{item.type}</p>
               </div>

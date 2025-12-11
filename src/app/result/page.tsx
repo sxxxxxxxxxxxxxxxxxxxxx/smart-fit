@@ -1,5 +1,5 @@
 "use client"
-import { useEffect, useState } from "react"
+import { useEffect, useState, Suspense } from "react"
 import { useSearchParams, useRouter } from "next/navigation"
 import { ArrowLeft, ShoppingCart } from "lucide-react"
 import ImageModal from "../../components/ui/ImageModal"
@@ -7,7 +7,7 @@ import SaveShare from "../../components/ui/SaveShare"
 import NoiseLayer from "../../components/ui/NoiseLayer"
 import { mockRecommendedProducts, mockWardrobeItems } from "../../lib/mockData"
 
-export default function ResultPage() {
+function ResultContent() {
   const search = useSearchParams()
   const router = useRouter()
   const [img, setImg] = useState("")
@@ -169,5 +169,20 @@ export default function ResultPage() {
 
       {modal && <ImageModal src={img} onClose={() => setModal(false)} />}
     </div>
+  )
+}
+
+export default function ResultPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen w-full bg-white flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-black mx-auto mb-4"></div>
+          <p className="text-gray-500">加载中...</p>
+        </div>
+      </div>
+    }>
+      <ResultContent />
+    </Suspense>
   )
 }

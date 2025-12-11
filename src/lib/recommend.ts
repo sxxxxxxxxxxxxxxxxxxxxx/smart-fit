@@ -72,10 +72,10 @@ export function generateRecommendedItems(
   const styles = getStyleByOccasion(context.occasion)
 
   // 根据已有衣橱，推荐补充单品
-  const wardrobeTypes = new Set(matchedWardrobe.map((item) => item.type))
-  const neededTypes = ["top", "bottom", "outerwear", "shoes", "accessory"].filter(
+  const wardrobeTypes = new Set<string>(matchedWardrobe.map((item) => item.type))
+  const neededTypes = (["top", "bottom", "outerwear", "shoes", "accessory"] as const).filter(
     (type) => !wardrobeTypes.has(type)
-  )
+  ) as string[]
 
   // 从 Mock 数据中筛选
   let recommended = mockRecommendedProducts.filter((item) => {

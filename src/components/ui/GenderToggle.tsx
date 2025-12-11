@@ -1,5 +1,5 @@
 "use client"
-import type { Gender } from "@/src/lib/types"
+import type { Gender } from "@/lib/types"
 
 type Props = {
   value: Gender

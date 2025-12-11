@@ -1,6 +1,6 @@
-import type { UserData, Context } from "./types"
+import type { UserData, RecommendContext } from "./types"
 
-export function buildPrompt(user: UserData, ctx: Context) {
+export function buildPrompt(user: UserData, ctx: RecommendContext) {
   const bodyDesc =
     user.gender === "female"
       ? `a young ${user.skinTone}-skinned asian woman, height ${user.height}cm, weight ${user.weight}kg, ${user.bodyShape}-shaped body type`

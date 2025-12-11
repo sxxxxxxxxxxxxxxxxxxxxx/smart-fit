@@ -1,5 +1,5 @@
 "use client"
-import type { BodyShape } from "@/src/lib/types"
+import type { BodyShape } from "@/lib/types"
 
 type Props = { value: BodyShape; onChange: (b: BodyShape) => void }
 

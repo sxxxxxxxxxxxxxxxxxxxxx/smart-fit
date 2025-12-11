@@ -10,6 +10,7 @@ export interface ClothingItem {
   type: "top" | "bottom" | "outerwear" | "shoes" | "accessory"
   color: string
   style: "casual" | "formal" | "sport" | "street"
+  season?: "spring" | "summer" | "autumn" | "winter" | "all"
   purchaseLink?: string
   addedAt: Date
 }
